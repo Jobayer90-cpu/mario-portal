@@ -46,14 +46,14 @@
 
         header {
             background-color: var(--mario-red);
-            padding: 60px 20px;
+            padding: 40px 20px;
             border-bottom: 8px solid #000;
             text-align: center;
         }
 
         h1 {
             font-family: 'Bangers', cursive;
-            font-size: 5rem;
+            font-size: 4.5rem;
             color: white;
             margin: 0;
             text-shadow: 6px 6px #000;
@@ -71,18 +71,11 @@
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Home View Layout - Centered without pointing image */
-        .card-grid-container {
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-        }
-
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            width: 100%;
+            padding: 20px 0;
         }
 
         .card {
@@ -94,11 +87,7 @@
             box-shadow: 12px 12px 0px rgba(0,0,0,0.1);
         }
 
-        .card h2 {
-            font-family: 'Bangers', cursive;
-            font-size: 2.2rem;
-            color: var(--mario-blue);
-        }
+        .card h2 { font-family: 'Bangers'; color: var(--mario-blue); font-size: 2.2rem; }
 
         .btn {
             background: var(--mario-yellow);
@@ -109,8 +98,6 @@
             cursor: pointer;
             border-radius: 10px;
         }
-
-        .btn:active { transform: scale(0.95); }
 
         /* Roster Styles */
         .char-list { display: flex; flex-direction: column; gap: 20px; }
@@ -127,10 +114,11 @@
             width: 150px;
             min-width: 150px;
             background: #f0f0f0;
+            border-right: 5px solid #000;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-right: 5px solid #000;
         }
         
         .char-portrait { width: 100%; height: 100%; object-fit: cover; }
@@ -139,6 +127,13 @@
         .char-info h3 { margin: 0; font-family: 'Bangers'; font-size: 2.2rem; color: var(--mario-red); }
 
         /* Map Section */
+        .map-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
         .map-frame {
             background: #fff;
             border: 12px solid var(--wood-brown);
@@ -146,11 +141,18 @@
             overflow: hidden;
             padding: 10px;
             max-width: 900px;
-            margin: 0 auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             text-align: center;
         }
 
         .mushroom-map-image { max-width: 100%; height: auto; border: 4px solid #000; }
+
+        .pointing-guide {
+            width: 300px;
+            height: auto;
+            margin-top: -50px;
+            z-index: 5;
+        }
 
         /* Game Section */
         #game-container {
@@ -164,13 +166,16 @@
         }
         
         .quiz-image-box {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             margin: 20px auto;
             border: 4px solid #000;
             border-radius: 20px;
             overflow: hidden;
             background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .quiz-portrait { width: 100%; height: 100%; object-fit: contain; }
@@ -179,11 +184,11 @@
             display: block;
             width: 100%;
             margin: 15px 0;
-            padding: 20px;
+            padding: 15px;
             background: var(--mario-blue);
             color: white;
             font-family: 'Press Start 2P', cursive;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             border: 4px solid #000;
             cursor: pointer;
             border-radius: 10px;
@@ -216,23 +221,21 @@
 </header>
 
 <div id="home" class="content-section active">
-    <div class="card-grid-container">
-        <div class="card-grid">
-            <div class="card">
-                <h2>The Roster</h2>
-                <p>From plumbers to intergalactic deities.</p>
-                <button class="btn" onclick="showSection('gallery')">View Gallery</button>
-            </div>
-            <div class="card">
-                <h2>Identity Quiz</h2>
-                <p>Test your knowledge for virtual food.</p>
-                <button class="btn" onclick="showSection('game')">Play Game</button>
-            </div>
-            <div class="card">
-                <h2>Mushroom Map</h2>
-                <p>Explore the continent topography.</p>
-                <button class="btn" onclick="showSection('map')">View Map</button>
-            </div>
+    <div class="card-grid">
+        <div class="card">
+            <h2>The Roster</h2>
+            <p>From plumbers to intergalactic deities.</p>
+            <button class="btn" onclick="showSection('gallery')">View Gallery</button>
+        </div>
+        <div class="card">
+            <h2>Identity Quiz</h2>
+            <p>Test your knowledge for virtual food.</p>
+            <button class="btn" onclick="showSection('game')">Play Game</button>
+        </div>
+        <div class="card">
+            <h2>Mushroom Map</h2>
+            <p>Explore the continent topography.</p>
+            <button class="btn" onclick="showSection('map')">View Map</button>
         </div>
     </div>
 </div>
@@ -244,8 +247,11 @@
 
 <div id="map" class="content-section">
     <h2 style="font-family: 'Bangers'; font-size: 3rem; color: white; text-align: center;">MUSHROOM KINGDOM MAP</h2>
-    <div class="map-frame">
-        <img src="mario-map.webp" alt="Mushroom Kingdom Map" class="mushroom-map-image">
+    <div class="map-layout">
+        <div class="map-frame">
+            <img src="mario-map.webp" alt="Mushroom Kingdom Map" class="mushroom-map-image">
+        </div>
+        <img src="Mario_pointing.jpg" alt="Mario pointing" class="pointing-guide">
     </div>
 </div>
 
@@ -267,23 +273,23 @@
 </div>
 
 <footer>
-    <div class="credit">Created by Jo with help from his friend, Gemini.</div>
+    <div class="credit">MADE BY JO WITH HELP FROM HIS FRIEND GEMINI</div>
     <p style="margin-top: 15px; font-family: sans-serif; font-size: 0.9rem;">Thank You For Visiting!</p>
 </footer>
 
 <script>
     const fullRoster = [
-        { name: "Mario", desc: "The man, the myth, the plumber who hasn’t actually fixed a pipe since 1985. He’s a professional athlete, a doctor, a kart racer, and a certified dinosaur-dropper. If you see him coming, hide your bricks and your turtles.", image: "Mario.jpg" },
-        { name: "Luigi", desc: "The 'Player 2' king of anxiety. He’s taller, jumps higher, and has a much more expressive face when he's terrified (which is always). He’s the only man who can win a fight by literally doing absolutely nothing.", image: "Luigi.png" },
-        { name: "Princess Peach", desc: "A monarch with a severe security problem. She spends 90% of her time 'in another castle' and the other 10% floating over gaps with a parasol or hitting people with frying pans in Smash Bros.", image: "Princess_Peach.png" },
-        { name: "Yoshi", desc: "A green tax-fraud enthusiast who is legally obligated to be used as a double-jump platform over bottomless pits. He eats his enemies and turns them into reproductive projectiles. It’s best not to think about the biology there.", image: "Yoshi.png" },
-        { name: "Toad", desc: "A sentient fungus in a vest. He’s mostly there to scream in a raspy, 40-year-smoker voice and tell you that your quest was a waste of time because the Princess is somewhere else.", image: "toad-super-mario.jpg" },
-        { name: "Bowser", desc: "The CEO of Persistence. He has a bottomless budget for floating clown cars and lava-filled architecture, yet he still can’t figure out how to stop putting a 'Bridge Collapse' button right behind his throne.", image: "Bowser.jpg" },
-        { name: "Wario", desc: "Mario’s reflection in a funhouse mirror that’s been rubbed with garlic. He’s a greedy, treasure-hunting powerhouse who proves that if you yell loud enough and have a cool bike, people will eventually stop calling you a villain.", image: "Wario.png" },
-        { name: "Waluigi", desc: "A lanky, purple manifestation of pure spite. He wasn't invited to the main games, so he spends his entire existence being better than you at tennis and dancing. We are all still waiting for his standalone psychological thriller.", image: "Waluigi.png" },
-        { name: "Bowser Jr.", desc: "A spoiled brat with a bib and a paintbrush who is definitely going to inherit a very complicated legal battle over the Mushroom Kingdom day.", image: "Bowser_jr.png" },
-        { name: "Rosalina", desc: "An intergalactic goddess who lives on a giant starship with her sentient star-children. She’s way too powerful to be dealing with Mario’s nonsense, but she shows up for Kart racing because even space deities need a hobby.", image: "Rosalina.png" },
-        { name: "Donkey Kong", desc: "The original landlord. He used to throw barrels at Mario for fun, but now he just wants to eat bananas and punch crocodiles in the face. Respect the tie; it’s the only thing he’s wearing.", image: "DK.png" }
+        { name: "Mario", desc: "The man, the myth, the plumber who hasn’t fixed a pipe since 1985. Professional athlete and certified dinosaur-dropper. Hide your bricks.", image: "Mario.jpg" },
+        { name: "Luigi", desc: "The 'Player 2' king of anxiety. Taller, jumps higher, and can win a fight by literally doing absolutely nothing.", image: "Luigi.png" },
+        { name: "Princess Peach", desc: "A monarch with a severe security problem. Mostly in another castle or hitting people with frying pans.", image: "Princess_Peach.png" },
+        { name: "Yoshi", desc: "A green tax-fraud enthusiast used as a double-jump platform. Eats his enemies and turns them into projectiles.", image: "Yoshi.png" },
+        { name: "Toad", desc: "Sentient fungus in a vest. Mostly there to scream in a raspy voice and tell you the Princess is elsewhere.", image: "toad-super-mario.jpg" },
+        { name: "Bowser", desc: "CEO of Persistence. Bottomless budget for lava architecture, yet can't stop putting bridge-collapse buttons behind his throne.", image: "Bowser.jpg" },
+        { name: "Wario", desc: "Mario’s reflection in a garlic-rubbed mirror. Greedy powerhouse with a cool bike.", image: "Wario.png" },
+        { name: "Waluigi", desc: "Lanky, purple manifestation of pure spite. Better than you at tennis and dancing. Needs a psychological thriller.", image: "Waluigi.png" },
+        { name: "Bowser Jr.", desc: "A spoiled brat with a paintbrush who will inherit a very complicated legal battle over the kingdom.", image: "Bowser_jr.png" },
+        { name: "Rosalina", desc: "Intergalactic goddess with star-children. Too powerful for this nonsense, but shows up for Kart racing.", image: "Rosalina.png" },
+        { name: "Donkey Kong", desc: "The original landlord. Just wants to eat bananas and punch crocodiles in the face. Respect the tie.", image: "Donkey_Kong_character.png" }
     ];
 
     function showSection(id) {
@@ -297,7 +303,7 @@
         list.innerHTML += `
             <div class="char-card">
                 <div class="char-image-container">
-                    <img src="${c.image}" alt="${c.name}" class="char-portrait" onerror="this.src='https://via.placeholder.com/150?text=Image+Missing'">
+                    <img src="${c.image}" alt="${c.name}" class="char-portrait" onerror="this.src='https://via.placeholder.com/150?text=Coming+Soon'">
                 </div>
                 <div class="char-info">
                     <h3>${c.name}</h3>
