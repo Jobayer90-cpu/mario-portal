@@ -212,7 +212,7 @@
 <nav>
     <a onclick="showSection('home')">HOME</a>
     <a onclick="showSection('gallery')">ROSTER</a>
-    <a onclick="showSection('map')">WORLD MAP</a>
+    <a onclick="showSection('map')">MUSHROOM KINGDOM MAP</a>
     <a onclick="showSection('game')">PLAY GAME</a>
 </nav>
 
@@ -233,7 +233,7 @@
             <button class="btn" onclick="showSection('game')">Play Game</button>
         </div>
         <div class="card">
-            <h2>Mushroom Map</h2>
+            <h2>Mushroom Kingdom Map</h2>
             <p>Explore the continent topography.</p>
             <button class="btn" onclick="showSection('map')">View Map</button>
         </div>
@@ -288,8 +288,7 @@
         { name: "Wario", desc: "Mario’s reflection in a garlic-rubbed mirror. Greedy powerhouse with a cool bike.", image: "Wario.png" },
         { name: "Waluigi", desc: "Lanky, purple manifestation of pure spite. Better than you at tennis and dancing. Needs a psychological thriller.", image: "Waluigi.png" },
         { name: "Bowser Jr.", desc: "A spoiled brat with a paintbrush who will inherit a very complicated legal battle over the kingdom.", image: "Bowser_jr.png" },
-        { name: "Rosalina", desc: "Intergalactic goddess with star-children. Too powerful for this nonsense, but shows up for Kart racing.", image: "Rosalina.png" },
-        { name: "Donkey Kong", desc: "The original landlord. Just wants to eat bananas and punch crocodiles in the face. Respect the tie.", image: "Donkey_Kong_character.png" }
+        { name: "Rosalina", desc: "Intergalactic goddess with star-children. Too powerful for this nonsense, but shows up for Kart racing.", image: "Rosalina.png" }
     ];
 
     function showSection(id) {
@@ -303,7 +302,7 @@
         list.innerHTML += `
             <div class="char-card">
                 <div class="char-image-container">
-                    <img src="${c.image}" alt="${c.name}" class="char-portrait" onerror="this.src='https://via.placeholder.com/150?text=Coming+Soon'">
+                    <img src="${c.image}" alt="${c.name}" class="char-portrait" onerror="this.src='https://via.placeholder.com/150?text=Image+Missing'">
                 </div>
                 <div class="char-info">
                     <h3>${c.name}</h3>
