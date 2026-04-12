@@ -71,7 +71,6 @@
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Home View Layout */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -279,7 +278,6 @@
 </footer>
 
 <script>
-    // Donkey Kong has been removed from the array below
     const fullRoster = [
         { name: "Mario", desc: "The man, the myth, the plumber who hasn’t fixed a pipe since 1985. Professional athlete and certified dinosaur-dropper. Hide your bricks.", image: "Mario.jpg" },
         { name: "Luigi", desc: "The 'Player 2' king of anxiety. Taller, jumps higher, and can win a fight by literally doing absolutely nothing.", image: "Luigi.png" },
@@ -290,7 +288,8 @@
         { name: "Wario", desc: "Mario’s reflection in a garlic-rubbed mirror. Greedy powerhouse with a cool bike.", image: "Wario.png" },
         { name: "Waluigi", desc: "Lanky, purple manifestation of pure spite. Better than you at tennis and dancing. Needs a psychological thriller.", image: "Waluigi.png" },
         { name: "Bowser Jr.", desc: "A spoiled brat with a paintbrush who will inherit a very complicated legal battle over the kingdom.", image: "Bowser_jr.png" },
-        { name: "Rosalina", desc: "Intergalactic goddess with star-children. Too powerful for this nonsense, but shows up for Kart racing.", image: "Rosalina.png" }
+        { name: "Rosalina", desc: "Intergalactic goddess with star-children. Too powerful for this nonsense, but shows up for Kart racing.", image: "Rosalina.png" },
+        { name: "Donkey Kong", desc: "The original landlord. Just wants to eat bananas and punch crocodiles in the face. Respect the tie.", image: "Donkey_Kong_character.png" }
     ];
 
     function showSection(id) {
@@ -304,7 +303,7 @@
         list.innerHTML += `
             <div class="char-card">
                 <div class="char-image-container">
-                    <img src="${c.image}" alt="${c.name}" class="char-portrait" onerror="this.src='https://via.placeholder.com/150?text=Image+Missing'">
+                    <img src="${c.image}" alt="${c.name}" class="char-portrait" onerror="this.src='https://via.placeholder.com/150?text=Coming+Soon'">
                 </div>
                 <div class="char-info">
                     <h3>${c.name}</h3>
